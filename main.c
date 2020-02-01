@@ -285,6 +285,8 @@ end:
 	close_info();
 }
 
+char ci_fit_to_win();
+
 void load_image(int new)
 {
 	bool prev = new < fileidx;
@@ -314,6 +316,8 @@ void load_image(int new)
 	close_info();
 	open_info();
 	arl_setup(&arl, files[fileidx].path);
+
+	ci_fit_to_win(SCALE_DOWN);
 
 	if (img.multi.cnt > 0 && img.multi.animate)
 		set_timeout(animate, img.multi.frames[img.multi.sel].delay, true);
